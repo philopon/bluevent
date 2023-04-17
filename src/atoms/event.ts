@@ -11,7 +11,7 @@ const hashAtom = atomWithHash("event", "不忍の心", {
 export const eventDataAtom = atom<Promise<FetchedEventData>>(async (get) => {
   const event = get(hashAtom);
   // TODO: check status code
-  const resp = await fetch(`/data/${event}.json`);
+  const resp = await fetch(`/bluevent/data/${event}.json`);
   try {
     return { ...(await resp.json()), ok: true };
   } catch (e) {
