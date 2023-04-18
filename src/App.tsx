@@ -65,12 +65,12 @@ const FetchData = () => {
   if (!data.ok) {
     return (
       <Alert
-        title="invalid data"
+        title={data.title}
         color="red"
         variant="outline"
         sx={{ margin: 5 }}
       >
-        {data.error}
+        {data.body}
       </Alert>
     );
   }

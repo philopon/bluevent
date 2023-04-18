@@ -10,13 +10,16 @@ const hashAtom = atomWithHash("event", "不忍の心", {
 
 export const eventDataAtom = atom<Promise<FetchedEventData>>(async (get) => {
   const event = get(hashAtom);
-  // TODO: check status code
   const public_url = process.env.PUBLIC_URL || "";
-  const resp = await fetch(`${public_url}/data/${event}.json`);
+  const url = `${public_url}/data/${event}.json`;
+  const resp = await fetch(url);
+  if (resp.status !== 200) {
+    return { title: `${resp.status} ${resp.statusText}`, body: url, ok: false };
+  }
   try {
     return { ...(await resp.json()), ok: true };
   } catch (e) {
-    return { error: `${e}`, ok: false };
+    return { title: "invalid JSON", body: `${e}`, ok: false };
   }
 });
 

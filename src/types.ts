@@ -18,4 +18,4 @@ export type EventData = {
 
 export type FetchedEventData =
   | (EventData & { ok: true })
-  | { error: string; ok: false };
+  | { title: string; body: string; ok: false };
