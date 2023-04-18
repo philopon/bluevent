@@ -43,7 +43,7 @@ const MainApp = ({ data }: { data: EventData }) => {
 
       <Divider label="results" labelPosition="center" />
 
-      {solved.status === "Optimal" ? null : (
+      {solved.status === "Optimal" || solved.status === "Pending" ? null : (
         <Alert
           color="red"
           title="solver error"
@@ -85,9 +85,10 @@ const App = () => {
       theme={{
         colorScheme: "light",
         headings: {
+          fontWeight: 500,
           sizes: {
-            h1: { fontSize: "1.25rem", fontWeight: 500 },
-            h2: { fontSize: "1.1rem", fontWeight: 500 },
+            h1: { fontSize: "1.25rem" },
+            h2: { fontSize: "1.1rem" },
           },
         },
       }}
