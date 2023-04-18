@@ -14,8 +14,10 @@ const TitleText = () => {
 
 export const Shell = ({
   children,
+  onClickMenu,
 }: {
   children: JSX.Element | JSX.Element[];
+  onClickMenu?: () => void;
 }) => {
   return (
     <AppShell
@@ -40,7 +42,7 @@ export const Shell = ({
               paddingLeft: theme.spacing.md,
             })}
           >
-            <ActionIcon size="lg" variant="transparent">
+            <ActionIcon size="lg" variant="transparent" onClick={onClickMenu}>
               <IconMenu2 color="white" />
             </ActionIcon>
             <Title order={1} sx={{ lineHeight: 1.6, color: "white" }}>

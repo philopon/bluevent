@@ -1,10 +1,10 @@
 import React, { Suspense, useEffect } from "react";
 
 import { useHighs } from "./atoms/highs";
-import { eventDataAtom } from "./atoms/event";
+import { eventDataAtom, eventNamesAtom, hashAtom } from "./atoms/event";
 import Items from "./components/item";
 import { Shell } from "./components/container";
-import { Alert, Divider, MantineProvider } from "@mantine/core";
+import { Alert, Anchor, Divider, Drawer, MantineProvider } from "@mantine/core";
 import { useAtomValue, useSetAtom } from "jotai";
 import {
   apAtom,
@@ -17,6 +17,7 @@ import { EventData } from "./types";
 import { IconAlertCircle } from "@tabler/icons-react";
 import { Solver } from "./solver";
 import { Results } from "./components/results";
+import { useDisclosure } from "@mantine/hooks";
 
 const useSolution = (data: EventData) => {
   const highs = useHighs();
@@ -77,7 +78,38 @@ const FetchData = () => {
   return <MainApp data={data} />;
 };
 
+const EventsDrawer = ({
+  opened,
+  close,
+}: {
+  opened: boolean;
+  close: () => void;
+}) => {
+  const setHash = useSetAtom(hashAtom);
+  const eventNames = useAtomValue(eventNamesAtom);
+  if (!eventNames.ok) {
+    return <></>;
+  }
+
+  const changeEvent = (name: string) => {
+    setHash(name);
+    close();
+  };
+
+  return (
+    <Drawer opened={opened} onClose={close} title="events">
+      {eventNames.body.map((n, i) => (
+        <Anchor key={i} onClick={() => changeEvent(n)}>
+          {n}
+        </Anchor>
+      ))}
+    </Drawer>
+  );
+};
+
 const App = () => {
+  const [opened, { open, close }] = useDisclosure();
+
   return (
     <MantineProvider
       withGlobalStyles
@@ -88,12 +120,15 @@ const App = () => {
           fontWeight: 500,
           sizes: {
             h1: { fontSize: "1.25rem" },
-            h2: { fontSize: "1.1rem" },
+            h2: { fontSize: "1rem" },
           },
         },
       }}
     >
-      <Shell>
+      <Shell onClickMenu={open}>
+        <Suspense>
+          <EventsDrawer opened={opened} close={close} />
+        </Suspense>
         <Suspense>
           <FetchData />
         </Suspense>

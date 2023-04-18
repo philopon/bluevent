@@ -4,9 +4,9 @@ import { atomWithHash } from "jotai-location";
 
 const PUBLIC_URL = process.env.PUBLIC_URL || "";
 
-const hashAtom = atomWithHash<string | null>("event", null, {
-  serialize: (v) => JSON.stringify(v),
-  deserialize: (v) => JSON.parse(v),
+export const hashAtom = atomWithHash<string>("event", "", {
+  serialize: (v) => v,
+  deserialize: (v) => v,
   setHash: "replaceState",
 });
 
@@ -30,7 +30,7 @@ export const eventNamesAtom = atom<
 
 export const eventDataAtom = atom<Promise<FetchedEventData>>(async (get) => {
   let event = get(hashAtom);
-  if (event === null) {
+  if (!event) {
     const evresp = await get(eventNamesAtom);
     if (evresp.ok) {
       event = evresp.body[0];
@@ -45,7 +45,8 @@ export const eventDataAtom = atom<Promise<FetchedEventData>>(async (get) => {
     return { title: `${resp.status} ${resp.statusText}`, body: url, ok: false };
   }
   try {
-    return { ...(await resp.json()), ok: true };
+    const json = await resp.json();
+    return { ...json, ok: true };
   } catch (e) {
     return { title: `invalid JSON: ${url}`, body: `${e}`, ok: false };
   }

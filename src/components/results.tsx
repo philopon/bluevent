@@ -34,7 +34,7 @@ const QuestModal = ({
   const ref = useRef<HTMLInputElement>(null);
 
   return (
-    <Modal opened={opened} onClose={close} centered title={<>run {quest}</>}>
+    <Modal opened={opened} onClose={close} centered title={quest}>
       <form
         onSubmit={(e: React.FormEvent<HTMLFormElement>) => {
           e.preventDefault();
@@ -50,6 +50,7 @@ const QuestModal = ({
             styles={{
               input: { borderTopRightRadius: 0, borderBottomRightRadius: 0 },
             }}
+            placeholder="周回数"
             sx={{ width: "100%" }}
             ref={ref}
           />
