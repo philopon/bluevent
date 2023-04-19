@@ -3,8 +3,8 @@ const path = require("path");
 
 const getEvents = (base, next) => {
   const compare = (a, b) => {
-    if (a[1] > b[1]) return -1;
-    if (a[1] < b[1]) return 1;
+    if (a.date > b.date) return -1;
+    if (a.date < b.date) return 1;
     return 0;
   };
 
@@ -13,14 +13,16 @@ const getEvents = (base, next) => {
 
     const events = files
       .filter((v) => path.extname(v) === ".json")
-      .map((f) => [
-        f,
-        new Date(
-          JSON.parse(fs.readFileSync(path.join(base, f), "utf-8")).start
-        ),
-      ])
+      .map((f) => {
+        const parsed = JSON.parse(fs.readFileSync(path.join(base, f), "utf-8"));
+        return { date: new Date(parsed.start), data: parsed, path: f };
+      })
       .sort(compare)
-      .map((v) => path.basename(v[0], ".json"));
+      .map((v) => ({
+        path: path.basename(v.path, ".json"),
+        start: v.data.start,
+        end: v.data.end,
+      }));
 
     next(events);
   });

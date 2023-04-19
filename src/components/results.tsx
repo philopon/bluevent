@@ -5,66 +5,13 @@ import {
   questItemsAtom,
   solutionQuestsAtom,
 } from "../atoms/state";
-import {
-  Button,
-  Flex,
-  Modal,
-  Switch,
-  Text,
-  TextInput,
-  px,
-} from "@mantine/core";
+import { Button, Flex, Switch, Text, px } from "@mantine/core";
 import { ItemCard } from "./card";
 import { eventDataAtom } from "../atoms/event";
 import { IconPlayerPlay } from "@tabler/icons-react";
 import { useDisclosure } from "@mantine/hooks";
-import React, { useRef, useState } from "react";
-
-const QuestModal = ({
-  opened,
-  quest,
-  close,
-  onSubmit,
-}: {
-  opened: boolean;
-  quest: string;
-  onSubmit: (name: string, count: number) => void;
-  close: () => void;
-}) => {
-  const ref = useRef<HTMLInputElement>(null);
-
-  return (
-    <Modal opened={opened} onClose={close} centered title={quest}>
-      <form
-        onSubmit={(e: React.FormEvent<HTMLFormElement>) => {
-          e.preventDefault();
-          const v = ref.current?.value;
-          onSubmit(quest, v ? Number.parseInt(v) : 0);
-          close();
-        }}
-      >
-        <Button.Group>
-          <TextInput
-            data-autofocus
-            type="number"
-            styles={{
-              input: { borderTopRightRadius: 0, borderBottomRightRadius: 0 },
-            }}
-            placeholder="周回数"
-            sx={{ width: "100%" }}
-            ref={ref}
-          />
-          <Button
-            type="submit"
-            sx={{ borderTopLeftRadius: 0, borderBottomLeftRadius: 0 }}
-          >
-            <IconPlayerPlay size={px("1.2rem")} stroke={1.5} />
-          </Button>
-        </Button.Group>
-      </form>
-    </Modal>
-  );
-};
+import React, { useState } from "react";
+import { InputModal } from "./modal";
 
 export const Results = () => {
   const solutionQuests = useAtomValue(solutionQuestsAtom);
@@ -114,12 +61,15 @@ export const Results = () => {
 
   return (
     <Flex gap="xs" sx={{ padding: 5, width: "100%" }} wrap="wrap">
-      <QuestModal
+      <InputModal
         opened={opened}
-        quest={selectedQuest?.name || ""}
+        title={selectedQuest?.name || ""}
         close={close}
         onSubmit={runEvent}
-      />
+        placeholder="周回数"
+      >
+        <IconPlayerPlay size={px("1.2rem")} stroke={1.5} />
+      </InputModal>
       {eventData.quests.map((q, i) => (
         <ItemCard
           key={i}

@@ -10,11 +10,12 @@ export const hashAtom = atomWithHash<string>("event", "", {
   setHash: "replaceState",
 });
 
-export const eventNamesAtom = atom<
+export const eventsAtom = atom<
   Promise<
-    { ok: true; body: string[] } | { ok: false; title: string; body: string }
+    | { ok: true; body: { path: string; start: string; end: string }[] }
+    | { ok: false; title: string; body: string }
   >
->(async (get) => {
+>(async (_get) => {
   const url = `${PUBLIC_URL}/events.json`;
   const resp = await fetch(url);
 
@@ -31,9 +32,9 @@ export const eventNamesAtom = atom<
 export const eventDataAtom = atom<Promise<FetchedEventData>>(async (get) => {
   let event = get(hashAtom);
   if (!event) {
-    const evresp = await get(eventNamesAtom);
+    const evresp = await get(eventsAtom);
     if (evresp.ok) {
-      event = evresp.body[0];
+      event = evresp.body[0]?.path;
     } else {
       return evresp;
     }

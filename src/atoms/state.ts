@@ -6,7 +6,11 @@ import { HighsModelStatus } from "highs";
 export type QuestItemState = {
   bonus?: number;
   current?: number;
-  required?: number | { [item: string]: number };
+  required?:
+    | number
+    | {
+        [item: string]: { required: number; price: number } | undefined;
+      };
 };
 
 export const apAtom = atomWithStorage<number | null>("ap", null);
@@ -21,7 +25,7 @@ export const questItemAtom = atomFamily(
     atom(
       (get) => {
         const v = get(questItemsAtom);
-        return v[key];
+        return v[key] || {};
       },
       (get, set, value: QuestItemState) => {
         const v = get(questItemsAtom);

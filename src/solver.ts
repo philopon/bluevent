@@ -8,22 +8,26 @@ import {
 } from "highs";
 
 export class Solver {
+  limit: number;
   highs: Highs;
   data: EventData;
   state: { [name: string]: QuestItemState };
   disabledQuests: string[];
 
   constructor({
+    limit = 100000,
     highs,
     data,
     state,
     disabledQuests,
   }: {
+    limit?: number;
     highs: Highs;
     data: EventData;
     state: { [name: string]: QuestItemState };
     disabledQuests: string[];
   }) {
+    this.limit = limit;
     this.highs = highs;
     this.data = data;
     this.state = state;
@@ -39,7 +43,7 @@ export class Solver {
   }
 
   stElements() {
-    return this.data.shop.map(({ name, key }, i) => {
+    return this.data.shop.map(({ name: _, key }) => {
       const eq = this.data.quests
         .map(({ items, name }, j) => {
           const item = items[key];
@@ -58,9 +62,17 @@ export class Solver {
         )
         .map(([_, v]) => v)
         .join(" + ");
-      const req = (this.state[key]?.required || 0) as number;
+      const rawReq = this.state[key]?.required || {};
+      const req =
+        typeof rawReq === "number"
+          ? rawReq
+          : Object.keys(rawReq).reduce(
+              (a, k) =>
+                a + (rawReq[k]?.required || 0) * (rawReq[k]?.price || 0),
+              0
+            );
       const cur = this.state[key]?.current || 0;
-      const lb = Math.max(req - cur, 0);
+      const lb = Math.min(Math.max(req - cur, 0), this.limit);
 
       return [key, eq, lb] as const;
     });
@@ -98,7 +110,7 @@ General
   ${maxKey}: ${maxEq}
 Subject to
 ${this.st()}
-  ap: ${this.ap()} <= ${ap}
+  ap: ${this.ap()} <= ${Math.min(ap, this.limit)}
 General
   ${this.ints()}
     `;
@@ -107,9 +119,11 @@ General
   solve({
     maximize,
     ap,
+    debug = false,
   }: {
     maximize: string | null;
     ap: number | null;
+    debug?: boolean;
   }): Solution {
     type HSolution = GenericHighsSolution<
       false,
@@ -120,22 +134,29 @@ General
     let solvedAp: number | undefined = undefined;
     let solved: HSolution;
 
+    if (debug) console.debug(`maximize === ${maximize}, ap === ${ap}`);
     if (maximize === null) {
-      solved = this.highs.solve(this.problem1()) as HSolution;
+      const p1 = this.problem1();
+      if (debug) console.debug(p1);
+      solved = this.highs.solve(p1) as HSolution;
       if (solved.Status !== "Optimal") return { status: solved.Status };
 
       solvedAp = Math.round(solved["ObjectiveValue"]);
     } else {
       if (ap === null) {
-        const s1 = this.highs.solve(this.problem1());
+        const p1 = this.problem1();
+        if (debug) console.debug(p1);
+        const s1 = this.highs.solve(p1);
         if (s1.Status !== "Optimal") return { status: s1.Status };
 
-        solved = this.highs.solve(
-          this.problem2(maximize, s1["ObjectiveValue"])
-        ) as HSolution;
+        const p2 = this.problem2(maximize, s1["ObjectiveValue"]);
+        if (debug) console.debug(p2);
+        solved = this.highs.solve(p2) as HSolution;
         if (solved.Status !== "Optimal") return { status: solved.Status };
       } else {
-        solved = this.highs.solve(this.problem2(maximize, ap)) as HSolution;
+        const p2 = this.problem2(maximize, ap);
+        if (debug) console.debug(p2);
+        solved = this.highs.solve(p2) as HSolution;
         if (solved.Status !== "Optimal") return { status: solved.Status };
       }
     }

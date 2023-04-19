@@ -8,6 +8,8 @@ export type Quest = {
 
 export type EventData = {
   name: string;
+  start: string;
+  end: string;
   shop: {
     name: string;
     key: string;

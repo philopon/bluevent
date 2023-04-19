@@ -1,7 +1,7 @@
 import React, { Suspense, useEffect } from "react";
 
 import { useHighs } from "./atoms/highs";
-import { eventDataAtom, eventNamesAtom, hashAtom } from "./atoms/event";
+import { eventDataAtom, eventsAtom, hashAtom } from "./atoms/event";
 import Items from "./components/item";
 import { Shell } from "./components/container";
 import { Alert, Anchor, Divider, Drawer, MantineProvider } from "@mantine/core";
@@ -86,8 +86,8 @@ const EventsDrawer = ({
   close: () => void;
 }) => {
   const setHash = useSetAtom(hashAtom);
-  const eventNames = useAtomValue(eventNamesAtom);
-  if (!eventNames.ok) {
+  const events = useAtomValue(eventsAtom);
+  if (!events.ok) {
     return <></>;
   }
 
@@ -98,11 +98,21 @@ const EventsDrawer = ({
 
   return (
     <Drawer opened={opened} onClose={close} title="events">
-      {eventNames.body.map((n, i) => (
-        <Anchor key={i} onClick={() => changeEvent(n)}>
-          {n}
-        </Anchor>
-      ))}
+      {events.body.map((n, i) => {
+        const now = new Date();
+        const start = new Date(n.start);
+        const end = new Date(n.end);
+
+        return (
+          <Anchor
+            key={i}
+            onClick={() => changeEvent(n.path)}
+            sx={{ color: start < now && now < end ? undefined : "grey" }}
+          >
+            {n.path}
+          </Anchor>
+        );
+      })}
     </Drawer>
   );
 };
