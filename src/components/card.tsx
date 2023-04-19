@@ -74,8 +74,8 @@ export const CollapseItemCard = ({
     <Card withBorder padding="xs" sx={sx}>
       <Group sx={{ width: "100%" }} spacing={5}>
         <Group
-          sx={{ width: "100%", cursor: "pointer" }}
-          onClick={toggle}
+          sx={[{ width: "100%" }, collapse ? { cursor: "pointer" } : undefined]}
+          onClick={collapse ? toggle : undefined}
           position="apart"
         >
           <Flex gap="xs" align="flex-end" sx={{ width: "100%" }}>
