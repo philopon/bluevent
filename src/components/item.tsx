@@ -93,7 +93,6 @@ const ItemListItem = ({
             whiteSpace: "nowrap",
             cursor: "pointer",
           }}
-          onClick={toggleCheck}
         >
           {item.name}
         </Text>
@@ -103,7 +102,6 @@ const ItemListItem = ({
             fontSize: "0.8rem",
             cursor: "pointer",
           }}
-          onClick={toggleCheck}
         >
           @{item.price}
         </Text>
