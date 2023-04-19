@@ -1,3 +1,3 @@
 # bluevent
 
-https://philopon.github.io/bluevent/
+https://bluevent.foscar.net
