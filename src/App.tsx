@@ -29,8 +29,12 @@ const useSolution = (data: EventData) => {
 
   useEffect(() => {
     const pb = new Solver({ data, state, highs, disabledQuests: disabled });
-    const solved = pb.solve({ maximize, ap });
-    setSolution(solved);
+    try {
+      const solved = pb.solve({ maximize, ap });
+      setSolution(solved);
+    } catch (e) {
+      setSolution({ status: "Presolve error" });
+    }
   }, [ap, data, highs, maximize, setSolution, state, disabled]);
 };
 
@@ -104,13 +108,14 @@ const EventsDrawer = ({
         const end = new Date(n.end);
 
         return (
-          <Anchor
-            key={i}
-            onClick={() => changeEvent(n.path)}
-            sx={{ color: start < now && now < end ? undefined : "grey" }}
-          >
-            {n.path}
-          </Anchor>
+          <div key={i}>
+            <Anchor
+              onClick={() => changeEvent(n.path)}
+              sx={{ color: start < now && now < end ? undefined : "grey" }}
+            >
+              {n.path}
+            </Anchor>
+          </div>
         );
       })}
     </Drawer>
