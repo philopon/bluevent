@@ -1,0 +1,157 @@
+{
+  "name": "白亜の予告状",
+  "start": "2023-4-26",
+  "end": "2023-5-10",
+  "shop": [
+    {
+      "name": "きれいなカチューシャ",
+      "key": "katyusha",
+      "items": [
+        { "name": "初級レポート", "price": 1, "count": 150 },
+        { "name": "中級レポート", "price": 10, "count": 75 },
+        { "name": "上級レポート", "price": 40, "count": 25 },
+        { "name": "最上級レポート", "price": 200, "count": 10 },
+        { "name": "初級戦術教育BD (ミレニアム)", "price": 10, "count": 25 },
+        { "name": "中級戦術教育BD (ミレニアム)", "price": 30, "count": 15 },
+        { "name": "上級戦術教育BD (ミレニアム)", "price": 100, "count": 10 },
+        { "name": "最上級戦術教育BD (ミレニアム)", "price": 300, "count": 3 },
+        { "name": "ニムルドレンズの欠片", "price": 5, "count": 70 },
+        { "name": "壊れたニムルドレンズ", "price": 15, "count": 35 },
+        { "name": "摩耗したニムルドレンズ", "price": 50, "count": 20 },
+        { "name": "完全なニムルドレンズ", "price": 200, "count": 10 },
+        {
+          "name": "カウンターチェア・ディープブルー",
+          "price": 2000,
+          "count": 1
+        },
+        { "name": "水色のシングルソファ", "price": 2000, "count": 1 },
+        { "name": "ぜんまい式オルゴール", "price": 200, "count": 10 },
+        { "name": "世界で最も無駄な絡繰りボックス", "price": 200, "count": 10 },
+        { "name": "ボードゲーム「ザ・人生」", "price": 300, "count": 2 }
+      ]
+    },
+    {
+      "name": "メイクアップセット",
+      "key": "makeUpSet",
+      "items": [
+        { "name": "初級強化珠", "price": 1, "count": 150 },
+        { "name": "中級強化珠", "price": 4, "count": 75 },
+        { "name": "上級強化珠", "price": 15, "count": 25 },
+        { "name": "最上級強化珠", "price": 60, "count": 10 },
+        { "name": "初級技術ノート (ミレニアム)", "price": 5, "count": 40 },
+        { "name": "中級技術ノート (ミレニアム)", "price": 15, "count": 30 },
+        { "name": "上級技術ノート (ミレニアム)", "price": 50, "count": 20 },
+        { "name": "最上級技術ノート (ミレニアム)", "price": 200, "count": 12 },
+        { "name": "ネブラディスクの欠片", "price": 5, "count": 70 },
+        { "name": "壊れたネブラディスク", "price": 15, "count": 35 },
+        { "name": "摩耗したネブラディスク", "price": 50, "count": 20 },
+        { "name": "完全なネブラディスク", "price": 200, "count": 10 },
+        { "name": "ゲーム開発部のソファー", "price": 2000, "count": 1 },
+        { "name": "ゲーム開発部のロッカー", "price": 2000, "count": 1 },
+        { "name": "ゲーム開発部のウッドモニター", "price": 2000, "count": 1 },
+        { "name": "抹茶味の瓶ラムネ", "price": 200, "count": 10 },
+        { "name": "ペロロの腹筋ローラー", "price": 200, "count": 10 }
+      ]
+    },
+    {
+      "name": "屋敷への招待状",
+      "key": "invitation"
+    }
+  ],
+  "quests": [
+    {
+      "name": "01",
+      "ap": 10,
+      "items": {
+        "katyusha": 2,
+        "makeUpSet": 2,
+        "invitation": 14
+      }
+    },
+    {
+      "name": "02",
+      "ap": 10,
+      "items": {
+        "katyusha": 14,
+        "makeUpSet": 3
+      }
+    },
+    {
+      "name": "03",
+      "ap": 10,
+      "items": {
+        "katyusha": 4,
+        "makeUpSet": 14
+      }
+    },
+    {
+      "name": "04",
+      "ap": 10,
+      "items": {
+        "invitation": 18
+      }
+    },
+    {
+      "name": "05",
+      "ap": 15,
+      "items": {
+        "katyusha": 4,
+        "makeUpSet": 3,
+        "invitation": 20
+      }
+    },
+    {
+      "name": "06",
+      "ap": 15,
+      "items": {
+        "katyusha": 20,
+        "makeUpSet": 7
+      }
+    },
+    {
+      "name": "07",
+      "ap": 15,
+      "items": {
+        "katyusha": 7,
+        "makeUpSet": 20
+      }
+    },
+    {
+      "name": "08",
+      "ap": 15,
+      "items": {
+        "invitation": 27
+      }
+    },
+    {
+      "name": "09",
+      "ap": 20,
+      "items": {
+        "katyusha": 6,
+        "makeUpSet": 6,
+        "invitation": 24
+      }
+    },
+    {
+      "name": "10",
+      "ap": 20,
+      "items": {
+        "katyusha": 36
+      }
+    },
+    {
+      "name": "11",
+      "ap": 20,
+      "items": {
+        "makeUpSet": 36
+      }
+    },
+    {
+      "name": "12",
+      "ap": 20,
+      "items": {
+        "invitation": 36
+      }
+    }
+  ]
+}
