@@ -1,8 +1,17 @@
 import React, { Suspense } from "react";
-import { AppShell, Header, Title, Flex, ActionIcon } from "@mantine/core";
+import {
+  AppShell,
+  Header,
+  Title,
+  Flex,
+  ActionIcon,
+  Group,
+  Anchor,
+} from "@mantine/core";
 import { IconMenu2 } from "@tabler/icons-react";
 import { eventNameAtom } from "../atoms/event";
 import { useAtomValue } from "jotai";
+import { IconBrandGithub } from "@tabler/icons-react";
 
 const appTitle = "bluevent";
 
@@ -40,16 +49,26 @@ export const Shell = ({
             gap="md"
             sx={(theme) => ({
               paddingLeft: theme.spacing.md,
+              paddingRight: theme.spacing.md,
             })}
           >
             <ActionIcon size="lg" variant="transparent" onClick={onClickMenu}>
               <IconMenu2 color="white" />
             </ActionIcon>
-            <Title order={1} sx={{ lineHeight: 1.6, color: "white" }}>
+            <Title
+              order={1}
+              sx={{ lineHeight: 1.6, color: "white", flexGrow: 1 }}
+            >
               <Suspense fallback={appTitle}>
                 <TitleText />
               </Suspense>
             </Title>
+            <Anchor
+              sx={{ display: "flex" }}
+              href="https://github.com/philopon/bluevent"
+            >
+              <IconBrandGithub color="white" />
+            </Anchor>
           </Flex>
         </Header>
       }
