@@ -1,0 +1,161 @@
+{
+  "name": "甘い秘密と銃撃戦(復刻)",
+  "start": "2023-5-10",
+  "end": "2023-5-17",
+  "shop": [
+    { "name": "スイーツクーポン", "key": "coupon" },
+    {
+      "name": "ミントチョコパフェ",
+      "key": "parfait",
+      "items": [
+        { "name": "初級レポート", "price": 1, "count": 150 },
+        { "name": "中級レポート", "price": 10, "count": 75 },
+        { "name": "上級レポート", "price": 40, "count": 25 },
+        { "name": "最上級レポート", "price": 200, "count": 10 },
+        { "name": "初級戦術教育BD (トリニティ)", "price": 10, "count": 8 },
+        { "name": "中級戦術教育BD (トリニティ)", "price": 30, "count": 6 },
+        { "name": "上級戦術教育BD (トリニティ)", "price": 100, "count": 4 },
+        { "name": "最上級戦術教育BD (トリニティ)", "price": 300, "count": 1 },
+        { "name": "初級戦術教育BD (ヴァルキューレ)", "price": 10, "count": 8 },
+        { "name": "中級戦術教育BD (ヴァルキューレ)", "price": 30, "count": 6 },
+        { "name": "上級戦術教育BD (ヴァルキューレ)", "price": 100, "count": 4 },
+        {
+          "name": "最上級戦術教育BD (ヴァルキューレ)",
+          "price": 300,
+          "count": 1
+        },
+        { "name": "円盤型ペンダントの欠片", "price": 5, "count": 70 },
+        { "name": "壊れた円盤型ペンダント", "price": 15, "count": 35 },
+        { "name": "摩耗した円盤型ペンダント", "price": 50, "count": 20 },
+        { "name": "完全な円盤型ペンダント", "price": 200, "count": 10 },
+        { "name": "ミリタリーチェア・ブルー", "price": 1000, "count": 1 },
+        { "name": "原木のテラステーブル", "price": 1000, "count": 1 }
+      ]
+    },
+    {
+      "name": "マカロン",
+      "key": "macaron",
+      "items": [
+        { "name": "初級強化珠", "price": 1, "count": 150 },
+        { "name": "中級強化珠", "price": 4, "count": 75 },
+        { "name": "上級強化珠", "price": 15, "count": 25 },
+        { "name": "最上級強化珠", "price": 60, "count": 10 },
+        { "name": "初級技術ノート (トリニティ)", "price": 5, "count": 25 },
+        { "name": "中級技術ノート (トリニティ)", "price": 15, "count": 20 },
+        { "name": "上級技術ノート (トリニティ)", "price": 50, "count": 15 },
+        { "name": "最上級技術ノート (トリニティ)", "price": 200, "count": 10 },
+        { "name": "初級技術ノート (ヴァルキューレ)", "price": 5, "count": 25 },
+        { "name": "中級技術ノート (ヴァルキューレ)", "price": 15, "count": 20 },
+        { "name": "上級技術ノート (ヴァルキューレ)", "price": 50, "count": 15 },
+        {
+          "name": "最上級技術ノート (ヴァルキューレ)",
+          "price": 200,
+          "count": 10
+        },
+        { "name": "エーテルの粉", "price": 5, "count": 70 },
+        { "name": "エーテルの欠片", "price": 15, "count": 35 },
+        { "name": "エーテルの結晶", "price": 50, "count": 20 },
+        { "name": "エーテルのエッセンス", "price": 200, "count": 10 },
+        { "name": "バレンタインの収納セット", "price": 1000, "count": 1 }
+      ]
+    }
+  ],
+  "quests": [
+    {
+      "name": "01",
+      "ap": 10,
+      "items": {
+        "coupon": 13,
+        "parfait": 2,
+        "macaron": 2
+      }
+    },
+    {
+      "name": "02",
+      "ap": 10,
+      "items": {
+        "parfait": 13,
+        "macaron": 4
+      }
+    },
+    {
+      "name": "03",
+      "ap": 10,
+      "items": {
+        "parfait": 4,
+        "macaron": 13
+      }
+    },
+    {
+      "name": "04",
+      "ap": 10,
+      "items": {
+        "coupon": 16
+      }
+    },
+    {
+      "name": "05",
+      "ap": 15,
+      "items": {
+        "coupon": 20,
+        "parfait": 4,
+        "macaron": 4
+      }
+    },
+    {
+      "name": "06",
+      "ap": 15,
+      "items": {
+        "parfait": 20,
+        "macaron": 8
+      }
+    },
+    {
+      "name": "07",
+      "ap": 15,
+      "items": {
+        "parfait": 8,
+        "macaron": 20
+      }
+    },
+    {
+      "name": "08",
+      "ap": 15,
+      "items": {
+        "coupon": 26
+      }
+    },
+    {
+      "name": "09",
+      "ap": 20,
+      "items": {
+        "coupon": 28,
+        "parfait": 8,
+        "macaron": 8
+      }
+    },
+    {
+      "name": "10",
+      "ap": 20,
+      "items": {
+        "coupon": 16,
+        "parfait": 28
+      }
+    },
+    {
+      "name": "11",
+      "ap": 20,
+      "items": {
+        "coupon": 16,
+        "macaron": 28
+      }
+    },
+    {
+      "name": "12",
+      "ap": 20,
+      "items": {
+        "coupon": 40
+      }
+    }
+  ]
+}
