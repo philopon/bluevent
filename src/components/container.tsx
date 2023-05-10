@@ -5,7 +5,6 @@ import {
   Title,
   Flex,
   ActionIcon,
-  Group,
   Anchor,
 } from "@mantine/core";
 import { IconMenu2 } from "@tabler/icons-react";

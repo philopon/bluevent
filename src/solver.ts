@@ -98,12 +98,12 @@ General
 `;
   }
 
-  problem2(key: string, ap: number) {
+  getMax(key: string): readonly [string, string, number] | undefined {
     const sts = this.stElements();
-    const max = sts.find(([n]) => n === key);
-    if (max === undefined) {
-      throw Error(`ProblemSolver.problem2: unknown key: ${key}`);
-    }
+    return sts.find(([n]) => n === key);
+  }
+
+  problem2(max: readonly [string, string, number], ap: number) {
     const [maxKey, maxEq] = max;
 
     return `Maximize
@@ -133,9 +133,10 @@ General
 
     let solvedAp: number | undefined = undefined;
     let solved: HSolution;
+    const max = maximize === null ? undefined : this.getMax(maximize);
 
     if (debug) console.debug(`maximize === ${maximize}, ap === ${ap}`);
-    if (maximize === null) {
+    if (max === undefined) {
       const p1 = this.problem1();
       if (debug) console.debug(p1);
       solved = this.highs.solve(p1) as HSolution;
@@ -149,12 +150,12 @@ General
         const s1 = this.highs.solve(p1);
         if (s1.Status !== "Optimal") return { status: s1.Status };
 
-        const p2 = this.problem2(maximize, s1["ObjectiveValue"]);
+        const p2 = this.problem2(max, s1["ObjectiveValue"]);
         if (debug) console.debug(p2);
         solved = this.highs.solve(p2) as HSolution;
         if (solved.Status !== "Optimal") return { status: solved.Status };
       } else {
-        const p2 = this.problem2(maximize, ap);
+        const p2 = this.problem2(max, ap);
         if (debug) console.debug(p2);
         solved = this.highs.solve(p2) as HSolution;
         if (solved.Status !== "Optimal") return { status: solved.Status };

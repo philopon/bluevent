@@ -33,7 +33,7 @@ const useSolution = (data: EventData) => {
       const solved = pb.solve({ maximize, ap });
       setSolution(solved);
     } catch (e) {
-      setSolution({ status: "Presolve error" });
+      setSolution({ status: "Presolve error", payload: `${e}` });
     }
   }, [ap, data, highs, maximize, setSolution, state, disabled]);
 };
@@ -51,12 +51,12 @@ const MainApp = ({ data }: { data: EventData }) => {
       {solved.status === "Optimal" || solved.status === "Pending" ? null : (
         <Alert
           color="red"
-          title="solver error"
+          title={solved.status}
           sx={{ margin: 5 }}
           icon={<IconAlertCircle />}
           variant="outline"
         >
-          {solved.status}
+          {solved.payload}
         </Alert>
       )}
 

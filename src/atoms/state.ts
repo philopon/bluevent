@@ -55,7 +55,10 @@ type SolutionBody = {
 
 export type Solution =
   | { status: "Optimal"; body: SolutionBody }
-  | { status: Exclude<HighsModelStatus, "Optimal"> | "Pending" };
+  | {
+      status: Exclude<HighsModelStatus, "Optimal"> | "Pending";
+      payload?: string;
+    };
 
 export const solutionAtom = atom<Solution>({
   status: "Pending",
