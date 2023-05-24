@@ -1,0 +1,153 @@
+{
+  "name": "龍武同舟",
+  "start": "2023-5-24",
+  "end": "2023-6-7",
+  "shop": [
+    {
+      "name": "カードセット",
+      "key": "card"
+    },
+    {
+      "name": "玄武商会の食券",
+      "key": "ticket",
+      "items": [
+        { "name": "初級レポート", "price": 1, "count": 150 },
+        { "name": "中級レポート", "price": 10, "count": 75 },
+        { "name": "上級レポート", "price": 40, "count": 25 },
+        { "name": "最上級レポート", "price": 200, "count": 10 },
+        { "name": "初級戦術教育BD (山海経)", "price": 10, "count": 25 },
+        { "name": "中級戦術教育BD (山海経)", "price": 30, "count": 15 },
+        { "name": "上級戦術教育BD (山海経)", "price": 100, "count": 10 },
+        { "name": "最上級戦術教育BD (山海経)", "price": 300, "count": 3 },
+        { "name": "トーテムポールの破片", "price": 5, "count": 70 },
+        { "name": "破損したトーテムポール", "price": 15, "count": 35 },
+        { "name": "修復済みのトーテムポール", "price": 50, "count": 20 },
+        { "name": "完全なトーテムポール", "price": 200, "count": 10 },
+        { "name": "刺繍付きのハンカチ", "price": 200, "count": 10 },
+        { "name": "高級そうな欲望のつぼ", "price": 200, "count": 10 },
+        { "name": "おしゃれなくし", "price": 300, "count": 1 },
+        { "name": "中華風ホットショーケース", "price": 1000, "count": 1 }
+      ]
+    },
+    {
+      "name": "玄龍門バッジ",
+      "key": "badge",
+      "items": [
+        { "name": "初級強化珠", "price": 1, "count": 150 },
+        { "name": "中級強化珠", "price": 4, "count": 75 },
+        { "name": "上級強化珠", "price": 15, "count": 25 },
+        { "name": "最上級強化珠", "price": 60, "count": 10 },
+        { "name": "初級技術ノート (山海経)", "price": 5, "count": 40 },
+        { "name": "中級技術ノート (山海経)", "price": 15, "count": 30 },
+        { "name": "上級技術ノート (山海経)", "price": 50, "count": 20 },
+        { "name": "最上級技術ノート (山海経)", "price": 200, "count": 12 },
+        { "name": "髪伸び人形の破片", "price": 5, "count": 70 },
+        { "name": "破損した髪伸び人形", "price": 15, "count": 35 },
+        { "name": "修復済みの髪伸び人形", "price": 50, "count": 20 },
+        { "name": "完全な髪伸び人形", "price": 200, "count": 10 },
+        { "name": "可愛い食器セット", "price": 200, "count": 10 },
+        { "name": "ぜんまい式オルゴール", "price": 200, "count": 10 },
+        { "name": "レトロな卵の工芸品", "price": 300, "count": 1 },
+        { "name": "中華風の椅子", "price": 1000, "count": 1 }
+      ]
+    }
+  ],
+  "quests": [
+    {
+      "name": "01",
+      "ap": 10,
+      "items": {
+        "card": 12,
+        "ticket": 3,
+        "badge": 3
+      }
+    },
+    {
+      "name": "02",
+      "ap": 10,
+      "items": {
+        "ticket": 14,
+        "badge": 4
+      }
+    },
+    {
+      "name": "03",
+      "ap": 10,
+      "items": {
+        "ticket": 4,
+        "badge": 14
+      }
+    },
+    {
+      "name": "04",
+      "ap": 10,
+      "items": {
+        "card": 18
+      }
+    },
+    {
+      "name": "05",
+      "ap": 15,
+      "items": {
+        "card": 19,
+        "ticket": 4,
+        "badge": 4
+      }
+    },
+    {
+      "name": "06",
+      "ap": 15,
+      "items": {
+        "ticket": 23,
+        "badge": 4
+      }
+    },
+    {
+      "name": "07",
+      "ap": 15,
+      "items": {
+        "ticket": 4,
+        "badge": 23
+      }
+    },
+    {
+      "name": "08",
+      "ap": 15,
+      "items": {
+        "card": 27
+      }
+    },
+    {
+      "name": "09",
+      "ap": 20,
+      "items": {
+        "card": 28,
+        "ticket": 4,
+        "badge": 4
+      }
+    },
+    {
+      "name": "10",
+      "ap": 20,
+      "items": {
+        "card": 4,
+        "ticket": 32
+      }
+    },
+    {
+      "name": "11",
+      "ap": 20,
+      "items": {
+        "card": 4,
+        "badge": 32
+      }
+    },
+    {
+      "name": "12",
+      "ap": 20,
+      "items": {
+        "card": 36
+      }
+    }
+  ]
+}
