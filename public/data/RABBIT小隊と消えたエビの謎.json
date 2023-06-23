@@ -1,0 +1,154 @@
+{
+  "name": "RABBIT小隊と消えたエビの謎",
+  "start": "2023-6-21",
+  "end": "2023-7-05",
+  "shop": [
+    { "name": "冷凍エビ", "key": "shrimp" },
+    {
+      "name": "小石",
+      "key": "pebble",
+      "items": [
+        { "name": "初級レポート", "price": 1, "count": 250 },
+        { "name": "中級レポート", "price": 10, "count": 150 },
+        { "name": "上級レポート", "price": 40, "count": 50 },
+        { "name": "最上級レポート", "price": 200, "count": 15 },
+        { "name": "初級技術ノート (ヴァルキューレ)", "price": 5, "count": 40 },
+        { "name": "中級技術ノート (ヴァルキューレ)", "price": 15, "count": 30 },
+        { "name": "上級技術ノート (ヴァルキューレ)", "price": 50, "count": 20 },
+        {
+          "name": "最上級技術ノート (ヴァルキューレ)",
+          "price": 200,
+          "count": 12
+        },
+
+        { "name": "『銃 可愛い 青春』", "price": 100, "count": 10 },
+        {
+          "name": "ミリタリー用カモフラージュクリーム3種セット",
+          "price": 100,
+          "count": 10
+        },
+        { "name": "レースの枕", "price": 300, "count": 1 },
+        { "name": "シャワーブース", "price": 1000, "count": 1 }
+      ]
+    },
+    {
+      "name": "貝殻",
+      "key": "shell",
+      "items": [
+        { "name": "初級強化珠", "price": 1, "count": 250 },
+        { "name": "中級強化珠", "price": 4, "count": 150 },
+        { "name": "上級強化珠", "price": 16, "count": 50 },
+        { "name": "最上級強化珠", "price": 64, "count": 15 },
+        { "name": "初級戦術教育BD (ヴァルキューレ)", "price": 10, "count": 35 },
+        { "name": "中級戦術教育BD (ヴァルキューレ)", "price": 30, "count": 30 },
+        {
+          "name": "上級戦術教育BD (ヴァルキューレ)",
+          "price": 100,
+          "count": 25
+        },
+        {
+          "name": "最上級戦術教育BD (ヴァルキューレ)",
+          "price": 300,
+          "count": 7
+        },
+        { "name": "埋蔵金の地図", "price": 100, "count": 10 },
+        {
+          "name": "ザ・サプリメント",
+          "price": 100,
+          "count": 10
+        },
+        { "name": "栄養満載の総合ビタミンゼリー", "price": 300, "count": 1 },
+        {
+          "name": "スキューバダイビングギア保管ラック",
+          "price": 1000,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "乾いたヒトデ",
+      "key": "starfish",
+      "items": [
+        { "name": "アンティキティラ装置の欠片", "price": 5, "count": 150 },
+        { "name": "壊れたアンティキティラ装置", "price": 15, "count": 60 },
+        { "name": "摩耗したアンティキティラ装置", "price": 50, "count": 30 },
+        { "name": "完全なアンティキティラ装置", "price": 100, "count": 15 },
+        { "name": "ヴォルフスエックの鉄鉱石", "price": 5, "count": 150 },
+        { "name": "ヴォルフスエック鋼鉄の欠片", "price": 15, "count": 60 },
+        { "name": "低純度のヴォルフスエック鋼鉄", "price": 50, "count": 30 },
+        { "name": "高純度のヴォルフスエック鋼鉄", "price": 100, "count": 15 },
+        { "name": "刺繍付きのハンカチ", "price": 100, "count": 10 },
+        {
+          "name": "MX-レーションC型デザート風味",
+          "price": 100,
+          "count": 10
+        },
+        { "name": "おしゃれなくし", "price": 300, "count": 1 },
+
+        { "name": "新鮮！魚箱", "price": 1000, "count": 1 }
+      ]
+    }
+  ],
+  "quests": [
+    {
+      "name": "01",
+      "ap": 10,
+      "items": { "shrimp": 6, "pebble": 6, "shell": 6, "starfish": 0 }
+    },
+    {
+      "name": "02",
+      "ap": 10,
+      "items": { "shrimp": 6, "pebble": 0, "shell": 6, "starfish": 6 }
+    },
+    {
+      "name": "03",
+      "ap": 10,
+      "items": { "shrimp": 6, "pebble": 6, "shell": 0, "starfish": 6 }
+    },
+    {
+      "name": "04",
+      "ap": 10,
+      "items": { "shrimp": 12, "pebble": 2, "shell": 2, "starfish": 2 }
+    },
+    {
+      "name": "05",
+      "ap": 15,
+      "items": { "shrimp": 9, "pebble": 12, "shell": 6, "starfish": 0 }
+    },
+    {
+      "name": "06",
+      "ap": 15,
+      "items": { "shrimp": 9, "pebble": 0, "shell": 12, "starfish": 6 }
+    },
+    {
+      "name": "07",
+      "ap": 15,
+      "items": { "shrimp": 9, "pebble": 6, "shell": 0, "starfish": 12 }
+    },
+    {
+      "name": "08",
+      "ap": 15,
+      "items": { "shrimp": 21, "pebble": 2, "shell": 2, "starfish": 2 }
+    },
+    {
+      "name": "09",
+      "ap": 20,
+      "items": { "shrimp": 0, "pebble": 36, "shell": 0, "starfish": 0 }
+    },
+    {
+      "name": "10",
+      "ap": 20,
+      "items": { "shrimp": 0, "pebble": 0, "shell": 36, "starfish": 0 }
+    },
+    {
+      "name": "11",
+      "ap": 20,
+      "items": { "shrimp": 0, "pebble": 0, "shell": 0, "starfish": 36 }
+    },
+    {
+      "name": "12",
+      "ap": 20,
+      "items": { "shrimp": 36, "pebble": 0, "shell": 0, "starfish": 0 }
+    }
+  ]
+}
